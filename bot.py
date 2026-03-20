@@ -8,12 +8,13 @@ ANTHROPIC_API_KEY = os.environ["ANTHROPIC_API_KEY"]
 
 client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
 
-SYSTEM_PROMPT = """Ты — умный AI-ассистент канала ИИ + Крипта 🚀
-Помогаешь разбираться в криптовалютах и AI-инструментах для заработка.
-Отвечай на русском, дружелюбно, с эмодзи. Не давай финансовых советов."""
+SYSTEM_PROMPT = """You are a smart AI assistant for businesses in Los Angeles.
+You help customers with questions, bookings, and orders 24/7.
+Always reply in the same language the customer uses.
+Be friendly and professional."""
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text("👋 Привет! Я AI-ассистент канала ИИ + Крипта 🚀\n\nСпроси меня всё про крипту и ИИ!")
+    await update.message.reply_text("👋 Hi! I'm an AI assistant. How can I help you today?")
 
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.chat.send_action("typing")
